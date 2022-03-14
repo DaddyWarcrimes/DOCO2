@@ -1,0 +1,2 @@
+D:\Classes\2022 Spring\cs307\projects\DOCO\x64\Debug\DOCO.exe.lastcodeanalysissucceeded
+D:\Classes\2022 Spring\cs307\projects\DOCO\DOCO\x64\Debug\NativeCodeAnalysis.read.1.tlog

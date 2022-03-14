@@ -1,0 +1,14 @@
+﻿  creaturelist.cpp
+  DataParser.cpp
+  DOCO.cpp
+  main.cpp
+  location.cpp
+  map.cpp
+  pellet.cpp
+  world.cpp
+  Running Code Analysis for C/C++...
+  Generating Code...
+  DOCO.vcxproj -> D:\Classes\2022 Spring\cs307\projects\DOCO\x64\Debug\DOCO.exe
+D:\Classes\2022 Spring\cs307\projects\DOCO\DOCO\creaturelist.cpp(7): warning C26495: Variable 'creaturelist::list' is uninitialized. Always initialize a member variable (type.6).
+D:\Classes\2022 Spring\cs307\projects\DOCO\DOCO\DataParser.cpp(18): warning C26495: Variable 'DataParser::inFile' is uninitialized. Always initialize a member variable (type.6).
+D:\Classes\2022 Spring\cs307\projects\DOCO\DOCO\DOCO.cpp(10): warning C26495: Variable 'DOCO::myMap' is uninitialized. Always initialize a member variable (type.6).
