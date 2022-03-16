@@ -9,6 +9,7 @@
 
 #include "DataParser.h"
 #include <cctype>
+#include <cstring>
 
 using namespace std;
 

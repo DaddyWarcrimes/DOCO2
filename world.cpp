@@ -9,6 +9,13 @@
 
 
 //#define DEBUG
+// Windows Definitions
+//#define	WAIT (timeout 1 /nobreak > nul)
+//#define CLEARSCREEN cls
+
+// Linux Definitions
+#define WAIT (sleep 1)
+#define CLEARSCREEN clear
 
 
 world::world(const char* fileName)
