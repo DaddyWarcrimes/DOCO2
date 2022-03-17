@@ -1,6 +1,6 @@
 // main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include "config.h"
 #include <iostream>
 #include <string.h>
 #include <random>
@@ -13,7 +13,8 @@
 int main()
 {
     string file = "DOCOData01.xml";
-    int width = 0;
+/* 
+ * int width = 0;
     int height = 0;
     int x = 0, y = 0;
     char c;
@@ -28,6 +29,7 @@ int main()
     }
     return 0;
 
+    */
 
     std::fstream infile;
     bool run = false;
@@ -36,7 +38,7 @@ int main()
 
     while (!run)
     {
-        system("cls");
+        system(CLEARSCREEN);
         string turnString;
         if (turns == -1)
         {

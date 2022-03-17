@@ -1,3 +1,4 @@
+#include "config.h"
 #include "world.h"
 #include "map.h"
 #include "creaturelist.h"
@@ -7,15 +8,19 @@
 #include <random>
 #include <vector>
 
-
 //#define DEBUG
+
 // Windows Definitions
-//#define	WAIT (timeout 1 /nobreak > nul)
+#ifdef WINDOWS
+//#define WAIT (timeout 1 /nobreak > nul)
 //#define CLEARSCREEN cls
+#endif
 
 // Linux Definitions
-#define WAIT (sleep 1)
-#define CLEARSCREEN clear
+#ifdef LINUX
+#define WAIT ("sleep 1")
+#define CLEARSCREEN ("clear")
+#endif
 
 
 world::world(const char* fileName)
@@ -114,8 +119,8 @@ void world::turn()
 {
 	clist.act();
 	seed();
-    system("timeout 1 /nobreak > nul");
-	system("cls");
+    system(WAIT);
+	system(CLEARSCREEN);
 	myMap->draw();
 
 }
