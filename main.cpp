@@ -12,25 +12,16 @@
 
 int main()
 {
-    string file = "DOCOData01.xml";
 /* 
- * int width = 0;
-    int height = 0;
-    int x = 0, y = 0;
-    char c;
-    DataParser* dp = dp->getInstance(file.c_str());
-
-    width = dp->getDOCOWorldWidth();
-    height = dp->getDOCOWorldHeight();
-    while (dp->getDOCOData(&c, &x, &y))
-    {
-        cout << x << endl;
-        cout << y << endl;
-    }
-    return 0;
-
-    */
-
+ *
+	map m(4,4);
+	tenantlist tl(1);
+	tenant* d = new DOCO(&m, 1,1,500);
+	tl.addTenant(d);
+	tl.act();
+	return 0;
+	*/
+    string file = "DOCOData01.xml";
     std::fstream infile;
     bool run = false;
     string dataFile = "DOCOData01.xml";

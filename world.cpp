@@ -109,8 +109,8 @@ void world::init(const char* fileName)
 	int getX, getY;
 	while (dp->getDOCOData(&getDir, &getX, &getY))
 	{
-		DOCO a(myMap, getX, getY, 500);
-		clist.addDOCO(a);
+		tenant* a = new DOCO(myMap, getX, getY, 500);
+		clist.addTenant(a);
 	}
 }
 
@@ -138,7 +138,7 @@ void world::run(int turns)
 	{
 		seed();
 		myMap->draw();
-		while (!clist.extinct())
+		while (true) //Fix this
 		{
 			turn();
 		}

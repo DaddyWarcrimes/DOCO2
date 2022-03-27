@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class tenant
 {
@@ -7,6 +8,9 @@ private:
 public:
 	tenant();
 	~tenant();
-//	virtual void act();
+	virtual void act() {
+		std::cout << "Virtual function 'act'" << std::endl;
+		
+		return;};
 };
 

@@ -5,7 +5,8 @@
 //OS setting (WINDOWS or LINUX)
 #define LINUX
 
-
+//Debug flag
+//#define DEBUG
 
 
 

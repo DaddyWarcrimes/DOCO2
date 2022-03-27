@@ -3,6 +3,7 @@
 #include "map.h"
 #include <string.h>
 #include <iostream>
+#include "config.h"
 //#define DEBUG
 
 using namespace std;
@@ -46,6 +47,10 @@ void DOCO::setLocation(int x, int y)
 //DOCO takes it's turn based upon surrounding conditions
 void DOCO::act()
 {
+#ifdef DEBUG
+	printf("%sDOCO act function\n","---DEBUG---");
+#endif
+	
 	if (mapX == -1)
 	{
 		return;

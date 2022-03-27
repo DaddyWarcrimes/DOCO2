@@ -1,5 +1,6 @@
 #include "tenantlist.h"
-#include "DOCO.h"
+#include "tenant.h"
+#include "config.h"
 #include <iostream>
 
 //#define DEBUG
@@ -10,30 +11,34 @@ tenantlist::tenantlist()
 }
 tenantlist::tenantlist(int size)
 {
-	list = new DOCO[size];
-	iterator = 0;
+	list.reserve(size);
 }
 tenantlist::~tenantlist()
 {
-	delete[] list;
+	
 }
 
 void tenantlist::init(int size)
 {
-	list = new DOCO[size];
+	list.reserve(size);
 	iterator = 0;
 }
 
-void tenantlist::addDOCO(DOCO newDOCO)
+void tenantlist::addTenant(tenant* newTenant)
 {
-	list[iterator] = newDOCO;
-	iterator++;
+	list.push_back(newTenant);
 }
 
-//Signals all DOCOs to take their turn (one at a time)
+//Signals all tenants to take their turn (one at a time)
 void tenantlist::act()
 {
-	for (int i = 0; i < iterator; i++)
+	for(int i = 0; i < list.size(); i++)
+	{
+		 list.at(i)->act();
+	}
+	
+/* 
+ * for (int i = 0; i < iterator; i++)
 	{
 		list[i].act();
 	}
@@ -45,25 +50,31 @@ void tenantlist::act()
 	}
 	std::cout << std::endl;
 #endif
+*/
 	
 }
 
-//returns true if all DOCOs are dead
+//returns true if all tenants are dead
 bool tenantlist::extinct()
 {
-	int sum = 0;
+/* Won't work correctly for tenant class 
+ * int sum = 0;
 	for (int i = 0; i < iterator; i++)
 	{
 		sum += list[i].getEnergy();
 	}
 	return(sum == 0);
+	*/
+	return false;
 }
 
 void tenantlist::report()
 {
-	for (int i = 0; i < iterator; i++)
+/* Won't work correctly for tenant class 
+ * for (int i = 0; i < iterator; i++)
 	{
 		std::cout << i << ". " << list[i].report() << std::endl;
 	}
+	*/
 	return;
 }

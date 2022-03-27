@@ -1,10 +1,12 @@
 #pragma once
-class DOCO;
+#include <vector>
+class tenant;
 
 class tenantlist
 {
 private:
-	DOCO* list;
+	std::vector<tenant*> list;
+	//tenant* list;
 	int iterator;
 
 public:
@@ -12,7 +14,7 @@ public:
 	tenantlist(int size);
 	~tenantlist();
 	void init(int size);
-	void addDOCO(DOCO newDOCO);
+	void addTenant(tenant* newTenant);
 	void act();
 	bool extinct();
 	void report();

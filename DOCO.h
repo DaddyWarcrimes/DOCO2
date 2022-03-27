@@ -22,7 +22,7 @@ public:
     DOCO(map* newMap, int x, int y, int e);
     ~DOCO();
     void setLocation(int x, int y);
-    void act();
+    void act() override;
     void addEnergy(unsigned int e);
     void addMap(map* newMap);
 	string getAzimuth();
