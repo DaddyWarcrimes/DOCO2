@@ -85,7 +85,7 @@ int main()
     }
     srand((unsigned int)time(0));
     world w(dataFile.c_str());
-    system("cls");
+    system(CLEARSCREEN);
     w.run(turns);
 
 

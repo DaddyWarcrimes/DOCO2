@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include "tenant.h"
 
 using namespace std;
 class map;
 
-class DOCO
+class DOCO : public tenant
 {
 private:
     map* myMap;

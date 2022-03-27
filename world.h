@@ -1,10 +1,10 @@
 #pragma once
 #include "map.h"
-#include "creaturelist.h"
+#include "tenantlist.h"
 
 
 class map;
-class creaturelist;
+class tenantlist;
 class DOCO;
 class DataParser;
 
@@ -14,7 +14,7 @@ private:
 	map* myMap;
 	int maxX;
 	int maxY;
-	creaturelist clist;
+	tenantlist clist;
 	void turn();
 
 public:
