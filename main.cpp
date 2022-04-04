@@ -7,20 +7,21 @@
 #include "world.h"
 #include <fstream>
 #include "DataParser.h"
+#include <limits.h>
+#include "DOCOFactory.h"
+
 
 
 
 int main()
 {
-/* 
- *
-	map m(4,4);
-	tenantlist tl(1);
-	tenant* d = new DOCO(&m, 1,1,500);
-	tl.addTenant(d);
-	tl.act();
+	std::cout << USHRT_MAX << std::endl;
+	DOCOFactory* a = a->getInstance();
+	
+	DOCOFactory* b = b->getInstance();
+
+	DOCOFactory* c = c->getInstance();
 	return 0;
-	*/
     string file = "DOCOData01.xml";
     std::fstream infile;
     bool run = false;

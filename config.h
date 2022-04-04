@@ -6,7 +6,7 @@
 #define LINUX
 
 //Debug flag
-//#define DEBUG
+#define DEBUG
 
 
 

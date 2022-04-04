@@ -4,11 +4,13 @@
 
 using namespace std;
 class map;
+class tenantlist;
 
 class DOCO : public tenant
 {
 private:
     map* myMap;
+    tenantlist * list;
     int azimuthX;
     int azimuthY;
     int mapX;
