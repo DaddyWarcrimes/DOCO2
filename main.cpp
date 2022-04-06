@@ -9,13 +9,31 @@
 #include "DataParser.h"
 #include <limits.h>
 #include "DOCOFactory.h"
+#include "behavior.h"
+#include "verticalBehavior.h"
 
 
 
 
 int main()
 {
+
 	map a(10,10);
+	DOCO* derp = new DOCO(&a, 5, 5, 500);
+	a.addDOCO(derp,5,5);
+	behavior* beh = new verticalBehavior();
+	derp->setBehavior(beh);
+	std::cout << derp->draw() << std::endl;
+	location loc;
+	loc.addDOCO(derp);
+	std::cout << loc.draw() << std::endl;
+	loc.removeDOCO();
+	std::cout << loc.draw() << std::endl;
+	loc.addPellet();
+	std::cout << loc.draw() << std::endl;
+
+	a.draw();
+
 	return 0;
     string file = "DOCOData01.xml";
     std::fstream infile;

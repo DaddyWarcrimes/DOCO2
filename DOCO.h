@@ -32,6 +32,7 @@ public:
     void addMap(map* newMap);
 	string getAzimuth();
     unsigned int getEnergy();
+    char draw();
     string report();
 };
 

@@ -18,6 +18,7 @@ public:
 	int pelletCount();
 	void addPellet();
 	int feed();
+	char draw();
 
 };
 

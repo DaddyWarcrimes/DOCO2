@@ -55,10 +55,27 @@ void location::addPellet()
 int location::feed()
 {
 	int sum = 0;
-	for (int i = 0; i < pellets.size(); i++ )
+	for (int i = 0; i < (int)pellets.size(); i++ )
 	{
 		sum += pellets.at(i).getEnergy();
 	}
 	pellets.clear();
 	return (sum);
+}
+
+//retuns the character of the occupant
+char location::draw()
+{
+	if(occupant != NULL)
+	{
+		 return occupant->draw();
+	}
+	else if ((int)pellets.size() == 0)
+	{
+		return '-';
+	}
+	else
+	{
+		return '.';
+	}
 }

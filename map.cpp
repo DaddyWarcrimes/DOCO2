@@ -101,7 +101,9 @@ void map::draw()
 
 		for (int j = 0; j < maxX; j++)
 		{
-			if (grid[j][i].isOccupied())
+			std::cout << grid[j][i].draw();
+/* 
+ * if (grid[j][i].isOccupied())
 			{
 				std::cout << "*";
 			}
@@ -113,6 +115,7 @@ void map::draw()
 			{
 				std::cout << ".";
 			}
+			*/
 		}
 		std::cout << std::endl;
 

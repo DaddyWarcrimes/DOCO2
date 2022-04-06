@@ -193,6 +193,11 @@ void DOCO::move()
 	}
 }
 
+//character that represents the DOCO on the map
+char DOCO::draw()
+{
+	return (myBehavior->getMarker());
+}
 //Report the the status of the DOCO as a string
 string DOCO::report()
 {
