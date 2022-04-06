@@ -13,7 +13,7 @@ public:
 	DOCOFactory();
 	~DOCOFactory();
 	DOCOFactory* getInstance();
-	DOCO* createDOCO(map* myMap,int mapX, int mapY, unsigned int energy, char* behavior);
+	DOCO* createDOCO(map* myMap, tenantlist* clist,int mapX, int mapY, unsigned int energy, char* behavior);
 	DOCO* cloneDOCO(DOCO* parent);
 	int countInstance();
 };

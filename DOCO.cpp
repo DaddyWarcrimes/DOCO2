@@ -4,7 +4,7 @@
 #include <string.h>
 #include <iostream>
 #include "config.h"
-//#define DEBUG
+#include "behavior.h"
 
 using namespace std;
 
@@ -41,6 +41,11 @@ void DOCO::setLocation(int x, int y)
 {
 	mapX = x;
 	mapY = y;
+	return;
+}
+void DOCO::setBehavior(behavior* addBehavior)
+{
+	myBehavior = addBehavior;
 	return;
 }
 
@@ -100,7 +105,7 @@ void DOCO::act()
 
 void DOCO::addEnergy(unsigned int e)
 {
-	energy += e;
+	energy += e; //Overflows deliberately left in; if DOCO overeats it dies.
 	return;
 }
 

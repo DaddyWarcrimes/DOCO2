@@ -15,12 +15,7 @@
 
 int main()
 {
-	std::cout << USHRT_MAX << std::endl;
-	DOCOFactory* a = a->getInstance();
-	
-	DOCOFactory* b = b->getInstance();
-
-	DOCOFactory* c = c->getInstance();
+	map a(10,10);
 	return 0;
     string file = "DOCOData01.xml";
     std::fstream infile;

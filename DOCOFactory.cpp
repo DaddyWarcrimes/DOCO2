@@ -34,4 +34,11 @@ DOCOFactory* DOCOFactory::getInstance()
 	
 	return instance;
 }
+DOCO* DOCOFactory::createDOCO(map* myMap, tenantlist* clist,int mapX, int mapY, unsigned int energy, char* behavior)
+{
+	DOCO* subject = new DOCO(myMap, mapX, mapY, energy);
+	tenant* t = subject;
+	clist->addTenant(t);
+	return subject;
+}
 
