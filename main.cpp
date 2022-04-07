@@ -11,6 +11,8 @@
 #include "DOCOFactory.h"
 #include "behavior.h"
 #include "verticalBehavior.h"
+#include "tenant.h"
+#include "DOCO.h"
 
 
 
@@ -19,16 +21,16 @@ int main()
 {
 
 	map a(10,10);
-	DOCO* derp = new DOCO(&a, 5, 5, 500);
-	a.addDOCO(derp,5,5);
+	tenant* derp = new DOCO(&a, 5, 5, 500);
+	a.addTenant(derp,5,5);
 	behavior* beh = new verticalBehavior();
 	derp->setBehavior(beh);
 	std::cout << derp->draw() << std::endl;
 	location loc;
-	loc.addDOCO(derp);
-	std::cout << derp->getAzimuth() << std::endl;
+	loc.addTenant(derp);
+//	std::cout << derp->getAzimuth() << std::endl;
 	std::cout << loc.draw() << std::endl;
-	loc.removeDOCO();
+	loc.removeTenant();
 	std::cout << loc.draw() << std::endl;
 	loc.addPellet();
 	std::cout << loc.draw() << std::endl;

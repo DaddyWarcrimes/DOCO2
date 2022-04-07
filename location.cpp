@@ -3,7 +3,7 @@
 #include <string.h>
 #include "location.h"
 #include "pellet.h"
-#include "DOCO.h"
+#include "tenant.h"
 #include <vector>
 
 using namespace std;
@@ -17,13 +17,13 @@ location::~location()
 {
 }
 
-void location::addDOCO(DOCO* newDOCO)
+void location::addTenant(tenant* newTenant)
 {
-	occupant = newDOCO;
+	occupant = newTenant;
 	return;
 }
 
-void location::removeDOCO()
+void location::removeTenant()
 {
 	occupant = nullptr;
 	return;

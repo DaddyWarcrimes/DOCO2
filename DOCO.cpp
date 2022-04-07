@@ -24,7 +24,7 @@ DOCO::~DOCO()
 DOCO::DOCO(map* newMap, int x, int y, int e)
 {
 	myMap = newMap;
-	myMap->addDOCO(this, x, y);
+	myMap->addTenant(this, x, y);
 	age = 0;
 	mapX = x;
 	mapY = y;
@@ -48,9 +48,9 @@ void DOCO::setLocation(int x, int y)
 	mapY = y;
 	return;
 }
-void DOCO::setBehavior(behavior* addBehavior)
+void DOCO::setBehavior(behavior* newBehavior)
 {
-	myBehavior = addBehavior;
+	myBehavior = newBehavior;
 	return;
 }
 
@@ -79,10 +79,10 @@ void DOCO::act()
 			{
 				energy -= 10;
 				age ++;
-				myMap->removeDOCO(mapX, mapY);
+				myMap->removeTenant(mapX, mapY);
 				mapX += i;
 				mapY += j;
-				myMap->addDOCO(this, mapX, mapY);
+				myMap->addTenant(this, mapX, mapY);
 				addEnergy(myMap->feed(mapX, mapY));
 				return;
 			}
@@ -102,7 +102,7 @@ void DOCO::act()
 	// Death 
 	if (energy == 0)
 	{
-		myMap->removeDOCO(mapX, mapY);
+		myMap->removeTenant(mapX, mapY);
 		mapX = -1; //skip future activity
 	}
 	return;
@@ -202,10 +202,11 @@ void DOCO::move()
 	{
 		energy -= 10;
 		age++;
-		myMap->removeDOCO(mapX, mapY);
+		myMap->removeTenant(mapX, mapY);
 		mapX += azimuthX;
 		mapY += azimuthY;
-		myMap->addDOCO(this, mapX, mapY);
+		tenant* temp = this;
+		myMap->addTenant(temp, mapX, mapY);
 	}
 }
 

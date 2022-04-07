@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
 #include "location.h"
-#include "DOCO.h"
+#include "tenant.h"
 
-class DOCO;
+class tenant;
 class location;
 
 class map
@@ -11,7 +11,6 @@ class map
 private:
 	int maxX;
 	int maxY;
-	//std::vector<std::vector<location*>> grid;
 	location** grid;
 	void populateGrid();
 public:
@@ -20,8 +19,8 @@ public:
 	~map();
 	int getMaxX();
 	int getMaxY();
-	void addDOCO(DOCO* newDOCO, int x, int y);
-	void removeDOCO(int x, int y);
+	void addTenant(tenant* newTenant, int x, int y);
+	void removeTenant(int x, int y);
 	bool inRange(int x, int y);
 	bool isOccupied(int x, int y);
 	int pelletCount(int x, int y);

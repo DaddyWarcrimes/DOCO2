@@ -27,12 +27,12 @@ public:
     ~DOCO();
     void setLocation(int x, int y);
     void act() override;
-    void setBehavior(behavior* addBehavior);
+    void setBehavior(behavior* newBehavior) override;
     void addEnergy(unsigned int e);
     void addMap(map* newMap);
     string getAzimuth();
     unsigned int getEnergy();
-    char draw();
+    char draw() override;
     string report();
 };
 

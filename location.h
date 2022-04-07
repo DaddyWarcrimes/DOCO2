@@ -2,18 +2,18 @@
 #include "pellet.h"
 #include <vector>
 
-class DOCO;
+class tenant;
 class location
 {
 private:
 	std::vector<pellet> pellets;
-	DOCO* occupant;
+	tenant* occupant;
 
 public:
 	location();
 	~location();
-	void addDOCO(DOCO* newDOCO);
-	void removeDOCO();
+	void addTenant(tenant* newTenant);
+	void removeTenant();
 	bool isOccupied();
 	int pelletCount();
 	void addPellet();

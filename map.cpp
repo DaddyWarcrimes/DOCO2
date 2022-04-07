@@ -2,6 +2,7 @@
 #include "location.h"
 #include <iostream>
 #include <string.h>
+#include "tenant.h"
 
 using namespace std;
 
@@ -49,14 +50,14 @@ int map::getMaxY()
 	return maxY;
 }
 
-void map::addDOCO(DOCO* newDOCO, int x, int y)
+void map::addTenant(tenant* newTenant, int x, int y)
 {
-	grid[x][y].addDOCO(newDOCO);
+	grid[x][y].addTenant(newTenant);
 }
 
-void map::removeDOCO(int x, int y)
+void map::removeTenant(int x, int y)
 {
-	grid[x][y].removeDOCO();
+	grid[x][y].removeTenant();
 }
 
 //returns true if a specified location is actually on the map
@@ -65,7 +66,7 @@ bool map::inRange(int x, int y)
 	return (x >= 0 && y >= 0 && x < maxX && y < maxY);
 }
 
-//returns true if a DOCO is at the specified location
+//returns true if a tenant is at the specified location
 bool map::isOccupied(int x, int y)
 {
 	return grid[x][y].isOccupied();
@@ -77,7 +78,7 @@ void map::addPellet(int x, int y)
 	return;
 }
 
-//Prints coordinates, locations, DOCOs and pellets in map format to the screen
+//Prints coordinates, locations, tenants and pellets in map format to the screen
 void map::draw()
 {
 	std::cout << "  ";
@@ -129,7 +130,7 @@ int map::pelletCount(int x, int y)
 	return (grid[x][y].pelletCount());
 }
 
-//DOCO eats all the pellets at a map location
+//tenant eats all the pellets at a map location
 int map::feed(int x, int y)
 {
 	return grid[x][y].feed();
