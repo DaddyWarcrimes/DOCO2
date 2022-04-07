@@ -29,12 +29,17 @@ DOCO::DOCO(map* newMap, int x, int y, int e)
 	mapX = x;
 	mapY = y;
 	energy = e;
-	azimuthX = rand() % 2 - 1;
+/* 
+ * azimuthX = rand() % 2 - 1;
 	azimuthY = rand() % 2 - 1;
 	if (azimuthX == 0 && azimuthY == 0)
 	{
 		azimuthX += 1;
 	}
+	*/
+	// TODO: Set azimuth some other way
+	azimuthX = 0;
+	azimuthY = 0;
 }
 
 void DOCO::setLocation(int x, int y)
@@ -112,6 +117,17 @@ void DOCO::addEnergy(unsigned int e)
 //Finds a new course based on surrounding conditions
 void DOCO::alterCourse()
 {
+	if(myBehavior != NULL )
+	{
+		 int changeX = azimuthX;
+		 int changeY = azimuthY;
+		 myBehavior->alterCourse(&changeX, &changeY, myMap, mapX, mapY);
+		 azimuthX = changeX;
+		 azimuthY = changeY;
+		 return;
+	}
+	//Original algorithm, should not run
+	
 	//Ordered pair coordinate
 	struct pair {
 		int x;

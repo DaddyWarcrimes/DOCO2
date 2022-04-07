@@ -30,7 +30,7 @@ public:
     void setBehavior(behavior* addBehavior);
     void addEnergy(unsigned int e);
     void addMap(map* newMap);
-	string getAzimuth();
+    string getAzimuth();
     unsigned int getEnergy();
     char draw();
     string report();

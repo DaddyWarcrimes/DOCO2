@@ -26,13 +26,21 @@ int main()
 	std::cout << derp->draw() << std::endl;
 	location loc;
 	loc.addDOCO(derp);
+	std::cout << derp->getAzimuth() << std::endl;
 	std::cout << loc.draw() << std::endl;
 	loc.removeDOCO();
 	std::cout << loc.draw() << std::endl;
 	loc.addPellet();
 	std::cout << loc.draw() << std::endl;
 
+	for(int i = 0; i < 10; i++ )
+	{
+		 a.draw();
+		 derp->act();
+	}
 	a.draw();
+
+
 
 	return 0;
     string file = "DOCOData01.xml";
