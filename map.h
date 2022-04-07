@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "location.h"
-#include "tenant.h"
 
 class tenant;
 class location;

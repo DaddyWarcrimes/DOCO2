@@ -20,29 +20,27 @@
 int main()
 {
 
+    	string file2 = "DOCOData02.xml";
+	DataParser* dp = dp->getInstance(file2.c_str());
+	int u, v;
+	char c[10] ;
+	while(dp->getDOCOData(c,&u,&v))
+	{
+	std::cout << c << u << v << std::endl;
+	}
+
+return 0;
 	map a(10,10);
 	tenant* derp = new DOCO(&a, 5, 5, 500);
 	a.addTenant(derp,5,5);
 	behavior* beh = new verticalBehavior();
 	derp->setBehavior(beh);
-	std::cout << derp->draw() << std::endl;
-	location loc;
-	loc.addTenant(derp);
-//	std::cout << derp->getAzimuth() << std::endl;
-	std::cout << loc.draw() << std::endl;
-	loc.removeTenant();
-	std::cout << loc.draw() << std::endl;
-	loc.addPellet();
-	std::cout << loc.draw() << std::endl;
-
 	for(int i = 0; i < 10; i++ )
 	{
 		 a.draw();
 		 derp->act();
 	}
 	a.draw();
-
-
 
 	return 0;
     string file = "DOCOData01.xml";
