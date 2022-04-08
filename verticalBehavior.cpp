@@ -97,6 +97,60 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 		return;
 
 	}
+	// map edge
+	else if(!myMap->inRange(*mapX, *mapY + *azimuthY) )
+	{
+		//shift left or right
+		std::vector<int> xOffsets;
+		int divisor = 0;
+		if(myMap->inRange(*mapX - 1, *mapY && !myMap->isOccupied(*mapX - 1, *mapY)) )
+		{
+			 xOffsets.push_back(-1);
+			 divisor ++;
+		}
+		if(myMap->inRange(*mapX + 1, *mapY && !myMap->isOccupied(*mapX + 1, *mapY)) )
+		{
+			 xOffsets.push_back(1);
+			 divisor ++;
+		}
+		if(divisor > 0)
+		{
+			int Offset = xOffsets[rand() % divisor];
+			myMap->removeTenant(*mapX, *mapY);
+			*mapX += Offset;
+			return;
+		}
+		//can't shift left or right, must go diaonal
+		else
+		{
+			xOffsets.clear();
+			if (myMap->inRange(*mapX -1, *mapY - *azimuthY) && !myMap->isOccupied(*mapX -1, *mapY - *azimuthY))
+			{
+				xOffsets.push_back(-1);
+				divisor ++;
+			}
+			if (myMap->inRange(*mapX + 1, *mapY - *azimuthY) && !myMap->isOccupied(*mapX + 1, *mapY - *azimuthY))
+			{
+				xOffsets.push_back(-1);
+				divisor ++;
+			}
+			if (divisor > 0)
+			{
+				int Offset = xOffsets[rand() % divisor];
+				myMap->removeTenant(*mapX, *mapY);
+				*mapX += Offset;
+				*mapY -= *azimuthY;
+				return;
+			}
+			else
+			{
+				return;
+			}
+		}
+	}
+
+	// Occupied in path
+	// Occupied in path and reverse
 	
 	
 	return;

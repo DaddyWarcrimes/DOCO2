@@ -32,26 +32,12 @@ void tenantlist::addTenant(tenant* newTenant)
 //Signals all tenants to take their turn (one at a time)
 void tenantlist::act()
 {
-	for(int i = 0; i < list.size(); i++)
+	for(int i = 0; i < (int)list.size(); i++)
 	{
 		 list.at(i)->act();
 	}
 	
-/* 
- * for (int i = 0; i < iterator; i++)
-	{
-		list[i].act();
-	}
-#ifdef DEBUG
-	std::cout << "Current energy : ";
-	for (int i = 0; i < iterator; i++)
-	{
-		std::cout << i << "=" << list[i].getEnergy() << " ";
-	}
-	std::cout << std::endl;
-#endif
-*/
-	
+
 }
 
 //returns true if all tenants are dead
@@ -70,7 +56,7 @@ bool tenantlist::extinct()
 
 void tenantlist::report()
 {
-	for(int i = 0; i < list.size(); i++ )
+	for(int i = 0; i < (int)list.size(); i++ )
 	{
 		std::cout << i << ": " << list[i]->draw() << std::endl;
 	}

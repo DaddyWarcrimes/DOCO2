@@ -58,7 +58,19 @@ void DOCO::setBehavior(behavior* newBehavior)
 //DOCO takes it's turn based upon surrounding conditions
 void DOCO::act()
 {
-#ifdef DEBUG
+	int tempX = mapX;
+	int tempY = mapY;
+	myBehavior->act(&azimuthX, &azimuthY,myMap,&mapX,&mapY);
+	tenant* self = this;
+	myMap->addTenant(self, mapX, mapY);
+	if(tempX != mapX || tempY != mapY )
+	{
+		 energy -= 50;
+	}
+	
+	
+/* Old algorithm
+ * #ifdef DEBUG
 	printf("%sDOCO act function\n","---DEBUG---");
 #endif
 	
@@ -100,6 +112,7 @@ void DOCO::act()
 	}
 	move();
 
+	*/
 	// Death 
 	if (energy == 0)
 	{
