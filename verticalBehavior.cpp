@@ -60,6 +60,11 @@ void verticalBehavior::alterCourse(int* azimuthX, int* azimuthY, map* myMap, int
 
 void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, int* mapY) 
 {
+	if(*azimuthX == 0 && *azimuthY == 0 )
+	{
+		 alterCourse(azimuthX,azimuthY,myMap,*mapX,*mapY);
+	}
+	
 	struct pair {int potentialX; int potentialY;};
 	//DOCO is dead
 	if (*mapX == -1)
@@ -150,8 +155,15 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 			}
 		}
 	}
-
 	// Occupied in path
+	else if(myMap->isOccupied(*mapX,*mapY + *azimuthY) && myMap->inRange(*mapX, *mapY - *azimuthY) && !myMap->isOccupied(*mapX, *mapY - *azimuthY) )
+	{
+		myMap->removeTenant(*mapX, *mapY);
+		*azimuthY *= -1;
+		*mapY += *azimuthY;
+		return;	
+	}
+	
 	// Occupied in path and reverse
 	
 	return;

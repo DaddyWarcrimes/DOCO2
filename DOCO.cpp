@@ -65,54 +65,9 @@ void DOCO::act()
 	myMap->addTenant(self, mapX, mapY);
 	if(tempX != mapX || tempY != mapY )
 	{
-		 energy -= 50;
+		 energy -= 25;
 	}
 	
-	
-/* Old algorithm
- * #ifdef DEBUG
-	printf("%sDOCO act function\n","---DEBUG---");
-#endif
-	
-	if (mapX == -1)
-	{
-		return;
-	}
-	
-	//check for pellets
-	for (int i = -1; i < 2; i++)
-	{
-		for (int j = -1; j < 2; j++)
-		{
-			if (!myMap->inRange(mapX + i, mapY + j))
-			{
-				continue;
-			}
-			else if (myMap->pelletCount(i + mapX,j + mapY) > 0)
-			{
-				energy -= 10;
-				age ++;
-				myMap->removeTenant(mapX, mapY);
-				mapX += i;
-				mapY += j;
-				myMap->addTenant(this, mapX, mapY);
-				addEnergy(myMap->feed(mapX, mapY));
-				return;
-			}
-		}
-	}
-	//Checks if it can move on current azimuth
-	if (!myMap->inRange(mapX + azimuthX,mapY + azimuthY) || myMap->isOccupied(mapX + azimuthX, mapY + azimuthY))
-	{
-		alterCourse();
-#ifdef DEBUG
-		std::cout << "Change course" << std::endl;
-#endif
-		
-	}
-	move();
-
-	*/
 	// Death 
 	if (energy == 0)
 	{

@@ -18,5 +18,8 @@ class behavior
 		{
 			std::cout << "virtual oid alterCourse\n";
 		};
-		virtual void act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, int* mapY){std::cout << "Virtual void act\n";};
+		virtual void act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, int* mapY)
+		{
+			std::cout << "Virtual void act\n";
+		};
 };
