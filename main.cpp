@@ -29,6 +29,13 @@ int main()
 	df->populateList(clist,amap,file2);
 	
 	amap->draw();
+
+	for(int i = 0; i < 5; i++ )
+	{
+		 clist->act();
+		 amap->draw();
+	}
+	
 return 0;
 	map a(10,10);
 	tenant* derp = new DOCO(&a, 5, 5, 500);

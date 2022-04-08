@@ -118,6 +118,7 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 			int Offset = xOffsets[rand() % divisor];
 			myMap->removeTenant(*mapX, *mapY);
 			*mapX += Offset;
+			*azimuthY *= -1;
 			return;
 		}
 		//can't shift left or right, must go diaonal
@@ -140,6 +141,7 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 				myMap->removeTenant(*mapX, *mapY);
 				*mapX += Offset;
 				*mapY -= *azimuthY;
+				*azimuthY *= -1;
 				return;
 			}
 			else
@@ -151,7 +153,6 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 
 	// Occupied in path
 	// Occupied in path and reverse
-	
 	
 	return;
 
