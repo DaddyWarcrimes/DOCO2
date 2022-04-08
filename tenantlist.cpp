@@ -70,11 +70,10 @@ bool tenantlist::extinct()
 
 void tenantlist::report()
 {
-/* Won't work correctly for tenant class 
- * for (int i = 0; i < iterator; i++)
+	for(int i = 0; i < list.size(); i++ )
 	{
-		std::cout << i << ". " << list[i].report() << std::endl;
+		std::cout << i << ": " << list[i]->draw() << std::endl;
 	}
-	*/
+	
 	return;
 }

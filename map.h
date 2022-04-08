@@ -11,11 +11,11 @@ private:
 	int maxX;
 	int maxY;
 	location** grid;
-	void populateGrid();
 public:
 	map();
 	map(int mx, int my);
 	~map();
+	void populateGrid(int x, int y);
 	int getMaxX();
 	int getMaxY();
 	void addTenant(tenant* newTenant, int x, int y);
@@ -25,6 +25,7 @@ public:
 	int pelletCount(int x, int y);
 	void addPellet(int x, int y);
 	void draw();
+	char drawLocation(int x, int y);
 	int feed(int x, int y);
 };
 

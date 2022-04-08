@@ -13,22 +13,22 @@
 #include "verticalBehavior.h"
 #include "tenant.h"
 #include "DOCO.h"
-
+#include "location.h"
 
 
 
 int main()
 {
-
     	string file2 = "DOCOData02.xml";
-	DataParser* dp = dp->getInstance(file2.c_str());
-	int u, v;
-	char c[10] ;
-	while(dp->getDOCOData(c,&u,&v))
-	{
-	std::cout << c << u << v << std::endl;
-	}
-
+	map* amap = new map(25,25);
+#ifdef DEBUG
+	printf("%smain\n","---DEBUG---");
+#endif
+ 	DOCOFactory* df = df->getInstance();
+	tenantlist* clist = new tenantlist();
+	df->populateList(clist,amap,file2);
+	
+	amap->draw();
 return 0;
 	map a(10,10);
 	tenant* derp = new DOCO(&a, 5, 5, 500);

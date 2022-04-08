@@ -24,7 +24,8 @@ DOCO::~DOCO()
 DOCO::DOCO(map* newMap, int x, int y, int e)
 {
 	myMap = newMap;
-	myMap->addTenant(this, x, y);
+	tenant* temp = this;
+	myMap->addTenant(temp, x, y);
 	age = 0;
 	mapX = x;
 	mapY = y;

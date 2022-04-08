@@ -8,9 +8,7 @@ using namespace std;
 
 map::map()
 {
-	maxX = 28;
-	maxY = 24;
-	populateGrid();
+	grid = NULL;
 }
 
 map::~map()
@@ -20,14 +18,23 @@ map::~map()
 
 map::map(int mx, int my)
 {
+/* 
 	maxX = mx;
 	maxY = my;
-	populateGrid();
+	*/
+	grid = NULL;
+	populateGrid(mx,my);
 }
 
 //Builds all locations on the map, and adds them to the grid
-void map:: populateGrid()
+void map:: populateGrid(int x, int y)
 {
+	if(grid != NULL )
+	{
+		 delete grid;
+	}
+	maxX = x;
+	maxY = y;
 	grid = new location*[maxY];
 	for (int i = 0; i < maxX; i++)
 	{
@@ -81,49 +88,39 @@ void map::addPellet(int x, int y)
 //Prints coordinates, locations, tenants and pellets in map format to the screen
 void map::draw()
 {
-	std::cout << "  ";
-	for (int i = 0; i < maxX; i++)
+	std::cout <<"  ";
+	for(int i = 0; i < maxX; i++ )
 	{
 		std::cout << i / 10;
 	}
-	std::cout << std::endl << "  ";
-	for (int i = 0; i < maxX; i++)
+	std::cout << "\n  ";
+	for(int i = 0l; i < maxX; i++ )
 	{
 		std::cout << i % 10;
 	}
-	std::cout << endl;
-	for (int i = 0; i < maxY && i < 100; i++)
+	std::cout << std::endl;
+	for(int j = 0; j < maxY; j++ )
 	{
-		if (i < 10)
-		{
-			std::cout << ' ';
-		}
-		cout << i;
+		 if(j < 10 )
+		 {
+			 std::cout << ' ';
+		 }
+		 std::cout << j;
 
-		for (int j = 0; j < maxX; j++)
-		{
-			std::cout << grid[j][i].draw();
-/* 
- * if (grid[j][i].isOccupied())
-			{
-				std::cout << "*";
-			}
-			else if (pelletCount(j, i) == 0)
-			{
-				std::cout << "-";
-			}
-			else
-			{
-				std::cout << ".";
-			}
-			*/
-		}
+		 for(int i = 0; i < maxX; i++ )
+		 {
+			 std::cout << grid[i][j].draw();
+		 }
 		std::cout << std::endl;
-
 	}
-	
-}
 
+
+	return;
+}
+char map::drawLocation(int x, int y)
+{
+	return grid[x][y].draw();
+}
 //Number of pellets at a specified map location
 int map::pelletCount(int x, int y)
 {

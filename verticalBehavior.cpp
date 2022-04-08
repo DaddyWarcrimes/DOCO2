@@ -24,7 +24,7 @@ void verticalBehavior::alterCourse(int* azimuthX, int* azimuthY, map* myMap, int
 #endif
 	
 	struct pair {int potentialX; int potentialY;};
-	vector<pair> pairs;
+	std::vector<pair> pairs;
 	for(int i = -1; i < 2; i++ )
 	{
 		if (i == 0)
@@ -56,4 +56,49 @@ void verticalBehavior::alterCourse(int* azimuthX, int* azimuthY, map* myMap, int
 
 	}
 	return;
+}
+
+void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, int* mapY) 
+{
+	struct pair {int potentialX; int potentialY;};
+	//DOCO is dead
+	if (*mapX == -1)
+	{
+		return;
+	}
+	
+	//check for pellets
+	for (int i = -1; i < 2; i++)
+	{
+		for (int j = -1; j < 2; j++)
+		{
+			if (!myMap->inRange(*mapX + i, *mapY + j))
+			{
+				continue;
+			}
+			else if (myMap->pelletCount(i + *mapX,j + *mapY) > 0)
+			{
+				myMap->removeTenant(*mapX, *mapY);
+				*mapX += i;
+				*mapY += j;
+//Move this to DOCO act		myMap->addTenant(this, mapX, mapY);
+//				addEnergy(myMap->feed(mapX, mapY));
+				return;
+			}
+		}
+	}
+	//Checks if it can move on current azimuth
+	
+	//can move
+	if(myMap->inRange(*mapX, *mapY + *azimuthY) && !myMap->isOccupied(*mapX , *mapY + *azimuthY) )
+	{
+		myMap->removeTenant(*mapX, *mapY);
+		*mapY += *azimuthY;
+		return;
+
+	}
+	
+	
+	return;
+
 }
