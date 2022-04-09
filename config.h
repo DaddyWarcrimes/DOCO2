@@ -2,6 +2,10 @@
 //
 //Configuration settings
 //
+//Simulation settings
+
+#define STARTENERGY 500
+#define ENERGYUSE 25
 //OS setting (WINDOWS or LINUX)
 #define LINUX
 

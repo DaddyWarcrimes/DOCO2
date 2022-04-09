@@ -65,7 +65,7 @@ void DOCO::act()
 	myMap->addTenant(self, mapX, mapY);
 	if(tempX != mapX || tempY != mapY )
 	{
-		 energy -= 25;
+		 energy -= ENERGYUSE;
 	}
 	
 	// Death 

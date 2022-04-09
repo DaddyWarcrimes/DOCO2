@@ -2,6 +2,7 @@
 //
 #include "config.h"
 #include <iostream>
+#include <stdio.h>
 #include <string.h>
 #include <random>
 #include "world.h"
@@ -27,11 +28,13 @@ int main()
  	DOCOFactory* df = df->getInstance();
 	tenantlist* clist = new tenantlist();
 	df->populateList(clist,amap,file2);
-	
-	amap->draw();
+	df->populateObstacles(clist,amap,file2);
 
-	for(int i = 0; i < 5; i++ )
+	amap->draw();
+for(int i = 0; i < 45; i++ )
 	{
+		system(WAIT);
+		system(CLEARSCREEN);
 		 clist->act();
 		 amap->draw();
 	}

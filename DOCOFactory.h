@@ -17,5 +17,6 @@ public:
 	DOCO* createDOCO(map* myMap, tenantlist* clist,int mapX, int mapY, unsigned int energy, char* behavior);
 	DOCO* cloneDOCO(DOCO* parent);
 	void populateList(tenantlist* clist, map* myMap, std::string file);
+	void populateObstacles(tenantlist* clist, map* myMap, std::string file);
 	int countInstance();
 };
