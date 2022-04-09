@@ -70,11 +70,11 @@ void DOCOFactory::populateList(tenantlist* clist, map* myMap, std::string file)
 void DOCOFactory::populateObstacles(tenantlist* clist, map* myMap, std::string file)
 {
 	DataParser* dp = dp->getInstance(file.c_str());
+	behavior* addBeh = new staticBehavior;
 	int u,v;
 	while(dp->getObstacleData(&u, &v))
 	{
 		tenant* addition = new obstacle;
-		behavior* addBeh = new staticBehavior;
 		addition->setBehavior(addBeh);
 		myMap->addTenant(addition, u, v);
 		std::cout << (char)128 << addBeh->getMarker();
