@@ -1,6 +1,6 @@
-OBJS	= DataParser.o location.o main.o map.o pellet.o DOCO.o tenant.o tenantlist.o world.o DOCOFactory.o behavior.o verticalBehavior.o obstacle.o staticBehavior.o
-SOURCE	= DataParser.cpp location.cpp main.cpp map.cpp pellet.cpp DOCO.cpp tenant.cpp tenantlist.cpp world.cpp DOCOFactory.cpp behavior.cpp verticalBehavior.cpp obstacle.cpp staticBehavior.cpp
-HEADER	= tenant.h tenantlist.h world.h config.h DataParser.h DOCO.h location.h map.h pellet.h DOCOFactory.h behavior.h verticalBehavior.h obstacle.h staticBehavior.h
+OBJS	= DataParser.o location.o main.o map.o pellet.o DOCO.o tenant.o tenantlist.o world.o DOCOFactory.o behavior.o verticalBehavior.o obstacle.o staticBehavior.o horizontalBehavior.o diagonalBehavior.o
+SOURCE	= DataParser.cpp location.cpp main.cpp map.cpp pellet.cpp DOCO.cpp tenant.cpp tenantlist.cpp world.cpp DOCOFactory.cpp behavior.cpp verticalBehavior.cpp obstacle.cpp staticBehavior.cpp horizontalBehavior.cpp diagonalBehavior.cpp
+HEADER	= tenant.h tenantlist.h world.h config.h DataParser.h DOCO.h location.h map.h pellet.h DOCOFactory.h behavior.h verticalBehavior.h obstacle.h staticBehavior.h horizontalBehavior.h diagonalBehavior.h
 OUT	= doco
 CC	 = g++
 FLAGS	 = -g -c -Wall
@@ -50,6 +50,12 @@ staticBehavior.o: staticBehavior.cpp
 
 verticalBehavior.o: verticalBehavior.cpp
 		$(CC) $(FLAGS) verticalBehavior.cpp 
+		
+horizontalBehavior.o: horizontalBehavior.cpp
+		$(CC) $(FLAGS) horizontalBehavior.cpp 
+
+diagonalBehavior.o: diagonalBehavior.cpp
+		$(CC) $(FLAGS) diagonalBehavior.cpp 
 
 clean:
 		rm -f $(OBJS) $(OUT)

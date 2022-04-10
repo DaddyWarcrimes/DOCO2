@@ -11,7 +11,6 @@
 #include <limits.h>
 #include "DOCOFactory.h"
 #include "behavior.h"
-#include "verticalBehavior.h"
 #include "tenant.h"
 #include "DOCO.h"
 #include "location.h"
@@ -41,16 +40,6 @@ for(int i = 0; i < 45; i++ )
 	
 return 0;
 	map a(10,10);
-	tenant* derp = new DOCO(&a, 5, 5, 500);
-	a.addTenant(derp,5,5);
-	behavior* beh = new verticalBehavior();
-	derp->setBehavior(beh);
-	for(int i = 0; i < 10; i++ )
-	{
-		 a.draw();
-		 derp->act();
-	}
-	a.draw();
 
 	return 0;
     string file = "DOCOData01.xml";

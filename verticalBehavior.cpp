@@ -108,12 +108,12 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 		//shift left or right
 		std::vector<int> xOffsets;
 		int divisor = 0;
-		if(myMap->inRange(*mapX - 1, *mapY && !myMap->isOccupied(*mapX - 1, *mapY)) )
+		if(myMap->inRange(*mapX - 1, *mapY) && !myMap->isOccupied(*mapX - 1, *mapY)) 
 		{
 			 xOffsets.push_back(-1);
 			 divisor ++;
 		}
-		if(myMap->inRange(*mapX + 1, *mapY && !myMap->isOccupied(*mapX + 1, *mapY)) )
+		if(myMap->inRange(*mapX + 1, *mapY) && !myMap->isOccupied(*mapX + 1, *mapY))
 		{
 			 xOffsets.push_back(1);
 			 divisor ++;
@@ -137,7 +137,7 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 			}
 			if (myMap->inRange(*mapX + 1, *mapY - *azimuthY) && !myMap->isOccupied(*mapX + 1, *mapY - *azimuthY))
 			{
-				xOffsets.push_back(-1);
+				xOffsets.push_back(1);
 				divisor ++;
 			}
 			if (divisor > 0)

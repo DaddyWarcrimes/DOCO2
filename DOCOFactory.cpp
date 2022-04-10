@@ -10,8 +10,8 @@
 #include <string>
 #include "verticalBehavior.h"
 #include "staticBehavior.h"
-
-
+#include "horizontalBehavior.h"
+#include "diagonalBehavior.h"
 
 DOCOFactory::DOCOFactory()
 {
@@ -53,16 +53,27 @@ void DOCOFactory::populateList(tenantlist* clist, map* myMap, std::string file)
 	factoryMap = myMap;
 	char direction[10];
 	int u,v; 
-	behavior* addBeh = new verticalBehavior();
+	behavior* addVert = new verticalBehavior;
+	behavior* addHor = new horizontalBehavior;
+	behavior* addDiag = new diagonalBehavior;
 	DataParser* dp = dp->getInstance(file.c_str());
 	while(dp->getDOCOData(direction,&u,&v) )
 	{
+		tenant* addition = new DOCO(myMap, u,v,STARTENERGY);
 		if (direction[0] == 'V')
 		{
-		tenant* addition = new DOCO(myMap, u,v,STARTENERGY);
-		addition->setBehavior(addBeh);
-		clist->addTenant(addition);
+		addition->setBehavior(addVert);
 		}
+		else if(direction[0] == 'H' )
+		{
+		addition->setBehavior(addHor);
+		}
+		else if(direction[0] == 'D' )
+		{
+		addition->setBehavior(addDiag);
+		}
+		
+		clist->addTenant(addition);
 	}
 	return;
 
@@ -93,15 +104,11 @@ void DOCOFactory::clone(int mapX, int mapY, int azimuthX, int azimuthY, int ener
 	}
 	else if(direction == '=' )
 	{
-		 return;
+		addBeh = new horizontalBehavior;
 	}
 	else if(direction == 'X' )
 	{
-		 return;
-	}
-	else
-	{
-		return;
+		addBeh = new diagonalBehavior;
 	}
 	newClone->setBehavior(addBeh);
 	//move clone off of parent location;
