@@ -82,6 +82,9 @@ void DOCO::act()
 		energy /= 2;
 		DOCOFactory* df = df->getInstance();
 		df->clone(mapX,mapY,azimuthX,azimuthY,energy,myBehavior->getMarker());
+		// Add back because clone will clear the location.
+		tenant* self = this;
+		myMap->addTenant(self, mapX,mapY);
 	}
 	
 	return;

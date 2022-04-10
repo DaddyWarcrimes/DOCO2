@@ -32,7 +32,8 @@ void tenantlist::addTenant(tenant* newTenant)
 }
 void tenantlist::addDynamic(tenant* newTenant)
 {
-	list.insert(list.begin(),newTenant);
+	//queue up new tenants
+	myQueue.push_back(newTenant);
 	return;
 }
 //Signals all tenants to take their turn (one at a time)
@@ -42,8 +43,12 @@ void tenantlist::act()
 	{
 		 list.at(i)->act();
 	}
-	
-
+	//add queued up clones
+	while(!myQueue.empty())
+	{
+		list.push_back(myQueue.back());
+		myQueue.pop_back();
+	}
 }
 
 //returns true if all tenants are dead

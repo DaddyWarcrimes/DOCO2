@@ -106,8 +106,6 @@ void DOCOFactory::clone(int mapX, int mapY, int azimuthX, int azimuthY, int ener
 	newClone->setBehavior(addBeh);
 	//move clone off of parent location;
 	newClone->act();
-	//replace parent with clone in original location. Technically this means 2 instances of the clone are on the map and the parent isn't, but it doesn't really make a difference
-	factoryMap->addTenant(newClone, mapX,mapY);
 	//add clone to front of the list so it won't be called to act this round
 	factoryList->addDynamic(newClone);
 	return;

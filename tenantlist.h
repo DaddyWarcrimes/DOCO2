@@ -6,8 +6,8 @@ class tenantlist
 {
 private:
 	std::vector<tenant*> list;
-	//tenant* list;
 	int iterator;
+	std::vector<tenant*> myQueue;
 
 public:
 	tenantlist();
