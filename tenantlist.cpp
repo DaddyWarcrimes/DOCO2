@@ -22,13 +22,19 @@ void tenantlist::init(int size)
 {
 	list.reserve(size);
 	iterator = 0;
+	return;
 }
 
 void tenantlist::addTenant(tenant* newTenant)
 {
 	list.push_back(newTenant);
+	return;
 }
-
+void tenantlist::addDynamic(tenant* newTenant)
+{
+	list.insert(list.begin(),newTenant);
+	return;
+}
 //Signals all tenants to take their turn (one at a time)
 void tenantlist::act()
 {

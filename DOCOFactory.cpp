@@ -49,6 +49,8 @@ DOCO* DOCOFactory::createDOCO(map* myMap, tenantlist* clist,int mapX, int mapY, 
 }
 void DOCOFactory::populateList(tenantlist* clist, map* myMap, std::string file)
 {
+	factoryList = clist;
+	factoryMap = myMap;
 	char direction[10];
 	int u,v; 
 	behavior* addBeh = new verticalBehavior();
@@ -79,5 +81,34 @@ void DOCOFactory::populateObstacles(tenantlist* clist, map* myMap, std::string f
 		std::cout << (char)128 << addBeh->getMarker();
 	}
 	std::cout << std::endl;
+	return;
+}
+void DOCOFactory::clone(int mapX, int mapY, int azimuthX, int azimuthY, int energy, char direction)
+{
+	tenant* newClone = new DOCO(factoryMap, mapX, mapY, energy);
+	behavior* addBeh;
+	if(direction == '|')
+	{
+		 addBeh = new verticalBehavior;
+	}
+	else if(direction == '=' )
+	{
+		 return;
+	}
+	else if(direction == 'X' )
+	{
+		 return;
+	}
+	else
+	{
+		return;
+	}
+	newClone->setBehavior(addBeh);
+	//move clone off of parent location;
+	newClone->act();
+	//replace parent with clone in original location. Technically this means 2 instances of the clone are on the map and the parent isn't, but it doesn't really make a difference
+	factoryMap->addTenant(newClone, mapX,mapY);
+	//add clone to front of the list so it won't be called to act this round
+	factoryList->addDynamic(newClone);
 	return;
 }

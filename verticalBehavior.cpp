@@ -165,6 +165,35 @@ void verticalBehavior::act(int* azimuthX, int* azimuthY, map* myMap, int* mapX, 
 	}
 	
 	// Occupied in path and reverse
+	else if(myMap->isOccupied(*mapX, *mapY + *azimuthY) && (myMap->isOccupied(*mapX, *mapY - *azimuthY) || !myMap->inRange(*mapX, *mapY - *azimuthY)))
+	{
+		std::vector<pair> pairs;
+		int size = 0;
+		for(int i = -1; i < 2; i++)
+		{
+			for(int j = -1; j < 2; j++)
+			{
+				if(i == 0 && j == 0 )
+				{
+				 	continue;
+				}
+				else if(myMap->inRange(*mapX + i, *mapY + j) && !myMap->isOccupied(*mapX + i, *mapY + j) )
+				{
+					pair add;
+			       		add.potentialX = *mapX + i;
+					add.potentialY = *mapY + j;		
+					pairs.push_back(add);
+					size ++;
+				}
+			}
+		}
+		pair select = pairs[rand() % size];
+		myMap->removeTenant(*mapX, *mapY);
+		*mapX = select.potentialX;
+		*mapY = select.potentialY;
+
+
+	}
 	
 	return;
 

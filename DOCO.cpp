@@ -5,6 +5,8 @@
 #include <iostream>
 #include "config.h"
 #include "behavior.h"
+#include "DOCOFactory.h"
+
 
 using namespace std;
 
@@ -69,11 +71,19 @@ void DOCO::act()
 	}
 	
 	// Death 
-	if (energy == 0)
+	if (energy <= 0)
 	{
 		myMap->removeTenant(mapX, mapY);
 		mapX = -1; //skip future activity
 	}
+	// Split
+	if(energy >= ENERGYSPLIT)
+	{
+		energy /= 2;
+		DOCOFactory* df = df->getInstance();
+		df->clone(mapX,mapY,azimuthX,azimuthY,energy,myBehavior->getMarker());
+	}
+	
 	return;
 }
 

@@ -15,6 +15,7 @@ public:
 	~tenantlist();
 	void init(int size);
 	void addTenant(tenant* newTenant);
+	void addDynamic(tenant* newTenant);
 	void act();
 	bool extinct();
 	void report();
